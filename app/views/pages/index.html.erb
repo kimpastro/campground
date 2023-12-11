@@ -1,0 +1,38 @@
+<div class="flex flex-col md:px-40 sm:px-10 pt-5 gap-y-4">
+  <p class="mx-auto text-4xl">Recently Vieweds</p>
+  <p class="text-sm text-gray-400 text-center">(Simulating this is a logged in user)</p>
+
+  <% if @campgrounds.any? %>
+    <% @campgrounds.each do |campground| %>
+      <%= link_to campground_path(campground), class: "shadow p-3 hover:bg-green-100 flex flex-col gap-y-2" do %>
+        <span class="font-bold text-2xl mx-auto bg-green-200 opacity-60 p-2 rounded">#<%= campground.id %> - <%= campground.name %></span>
+
+        <span class="text-center"><%= truncate(sanitize(campground.overview.html_safe), length: 100) %></span>
+
+        <div class="flex gap-x-2 items-center text-green-500 text-lg font-semibold mx-auto">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z" />
+          </svg>
+          <span><%= "#{campground.city} - #{campground.state}" %></span>
+        </div>
+
+        <div class="flex gap-x-1 pt-4 border-t items-center">
+          Last viewed at:
+          <strong class="text-blue-400">
+            <%= l(campground.last_viewed_at, format: :short) %>
+            (<%= time_ago_in_words(campground.last_viewed_at) %> ago)
+          </strong>
+        </div>
+      <% end %>
+    <% end %>
+
+    <div class="flex mx-auto">
+      <%== pagy_nav(@pagy) if @pagy.pages > 1%>
+    </div>
+
+  <% else %>
+    <p class="mx-auto text-2xl">There's no campgrounds viewed yet.</p>
+  <% end %>
+</div>
+
+

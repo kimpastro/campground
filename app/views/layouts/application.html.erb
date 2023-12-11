@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HipCamp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <%= render 'shared/flash' %>
+
+    <div class="flex my-8 justify-around font-bold underline bg-gray-200 p-4 max-w-lg mx-auto rounded">
+      <%= link_to 'Home', root_path, class: 'cursor-pointer hover:text-green-300' %>
+      <%= link_to 'All Campgrounds', campgrounds_path, class: 'cursor-pointer hover:text-green-300' %>
+    </div>
+
+    <main>
+      <%= yield %>
+    </main>
+  </body>
+</html>

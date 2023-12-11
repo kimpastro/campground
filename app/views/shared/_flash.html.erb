@@ -1,0 +1,7 @@
+<% if flash.any? %>
+  <div class="flex justify-center border rounded bg-red-100 p-3">
+    <% flash.each do |type, message| %>
+      <span><%= message %></span>
+    <% end %>
+  </div>
+<% end %>
