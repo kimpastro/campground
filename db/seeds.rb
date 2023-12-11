@@ -1,5 +1,3 @@
-puts '===== Creating Campings ====='
-
 campgrounds_list = [
   {
     "name": "Lake Perris Campground",
@@ -128,4 +126,3 @@ campgrounds_list = [
 ]
 
 Campground.create(campgrounds_list)
-puts '==== Done ===='

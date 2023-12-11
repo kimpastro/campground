@@ -1,24 +1,9 @@
-# HipCamp Example
+# Campground recently viewed
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+How to run locally:
 
-Things you may want to cover:
+Initial setup: `bin/setup`
 
-* Ruby version
+Then to run the server: `bin/dev` and you are all set.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Go to `localhost:3000` to access the app.
